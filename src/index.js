@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import RestaurantMenu from './Components/RestaurantMenu';
 import Shimmer from './Components/Shimmer';
+import Cart from './Components/Cart';
+
 
 
 const Grocery = lazy(() => import('./Components/Grocery'))
@@ -37,6 +39,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: <Suspense fallback={<Shimmer/>}><Grocery/></Suspense>
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       }
     ],
     errorElement: <Error/>

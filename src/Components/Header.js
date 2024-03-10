@@ -3,6 +3,7 @@ import logoimg from '../Utils/food-mart-logo.jpg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useOnline from '../Utils/useOnline';
+import { useSelector } from 'react-redux';
 
 
 const Header = () => {
@@ -18,6 +19,8 @@ const Header = () => {
   }
 
   const isOnline = useOnline();
+
+  const cartItems = useSelector((store) => store.cart.items); 
 
     return (
       <>
@@ -50,6 +53,7 @@ const Header = () => {
               <li className='px-[10px] py-[0]'><Link to = "/about">ABOUT US</Link></li>
               <li className='px-[10px] py-[0]'><Link to = "/contact">CONTACT US</Link></li>
               <li className='px-[10px] py-[0]'><Link to = "/grocery">Grocery</Link></li>
+              <li className='px-[10px] py-[0]'><Link to = "/cart">Cart - {cartItems.length}</Link></li>
               <button onClick={handleClick} className='p-[10px]'>Sign Up</button>
             </ul>
           </div>
