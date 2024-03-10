@@ -2,7 +2,7 @@ import '../App.css';
 import logoimg from '../Utils/food-mart-logo.jpg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useOnline from '../Utils/useOnline';
+// import useOnline from '../Utils/useOnline';
 import { useSelector } from 'react-redux';
 
 
@@ -18,7 +18,7 @@ const Header = () => {
     setstylediv(false)
   }
 
-  const isOnline = useOnline();
+  // const isOnline = useOnline();
 
   const cartItems = useSelector((store) => store.cart.items); 
 
@@ -48,13 +48,13 @@ const Header = () => {
           </div>
           <div className='navItems flex items-center justify-center mr-[20px]'>
             <ul className='list-none flex items-center justify-center'>
-              <li className='px-[10px] py-[0]'>Online : {isOnline === true ? "yup" : "Nope"}</li>
-              <li className='px-[10px] py-[0]'><Link to = "/">HOME</Link></li>
-              <li className='px-[10px] py-[0]'><Link to = "/about">ABOUT US</Link></li>
-              <li className='px-[10px] py-[0]'><Link to = "/contact">CONTACT US</Link></li>
-              <li className='px-[10px] py-[0]'><Link to = "/grocery">Grocery</Link></li>
-              <li className='px-[10px] py-[0]'><Link to = "/cart">Cart - {cartItems.length}</Link></li>
-              <button onClick={handleClick} className='p-[10px]'>Sign Up</button>
+              {/* <li className='px-[10px] py-[0]'>Online : {isOnline === true ? "yup" : "Nope"}</li> */}
+              <li className='px-[10px] py-[0] font-bold'><Link to = "/">HOME</Link></li>
+              <li className='px-[10px] py-[0] font-bold'><Link to = "/about">ABOUT US</Link></li>
+              <li className='px-[10px] py-[0] font-bold'><Link to = "/contact">CONTACT US</Link></li>
+              <li className='px-[10px] py-[0] font-bold'><Link to = "/grocery">GROCERIES</Link></li>
+              <li className='px-[10px] py-[0] font-bold'><Link to = "/cart">CART - {cartItems.length}</Link></li>
+              <button onClick={handleClick} className='p-[10px] font-bold border-[1px] border-[solid] border-[black]'>SIGN UP</button>
             </ul>
           </div>
         </div>

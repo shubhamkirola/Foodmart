@@ -40,7 +40,7 @@ const Body = () => {
       )
 
     return restaurantList.length === 0 ? ( <Shimmer/> ) : (
-    <div className='body mt-[10px] bg-[cadetblue] h-screen w-screen flex items-center flex-col'>
+    <div className='body mt-[10px] bg-[cadetblue] h-[100%] w-screen flex items-center flex-col'>
       <div className='search-Bar'>
         <input type='text' 
             placeholder='Type Restaurant Name..' 
@@ -54,7 +54,7 @@ const Body = () => {
             </input>
         <button onClick={filterTop}> TOP RATED </button>
       </div>
-      <div className='cards-container h-screen w-screen p-[20px] flex flex-row flex-wrap'>
+      <div className='cards-container h-screen w-9/12 p-[20px] flex flex-row flex-wrap'>
         {filteredRestaurant.map((rest) => {
           return (
             <Link 
