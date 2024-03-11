@@ -1,6 +1,5 @@
 import '../App.css';
 import logoimg from '../Utils/food-mart-logo.jpg';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import useOnline from '../Utils/useOnline';
 import { useSelector } from 'react-redux';
@@ -10,16 +9,6 @@ import { FiShoppingCart } from "react-icons/fi";
 
 
 const Header = () => {
-
-  const [stylediv, setstylediv] = useState(false)
-
-  const showSign = () => {
-    setstylediv(!stylediv)
-  }
-
-  const handleClick = () => {
-    setstylediv(true)
-  }
 
   // const isOnline = useOnline();
 
@@ -47,7 +36,7 @@ const Header = () => {
               <p data-testid="cart">Cart -{cartItems.length}</p>
             </div>
             </Link></li>
-              <button onClick={handleClick} className='p-[6px] font-bold border-[1px] border-[solid] border-[black] rounded'>SIGN UP</button>
+              <button className='p-[6px] font-bold border-[1px] border-[solid] border-[black] rounded'>SIGN UP</button>
             </ul>
           </div>
         </div>
