@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from "react-redux";
-import ItemCards from "./ItemCards.js";
 import CartItem from "./CartItem.js";
 import { clearCart } from "../Utils/CartSlice.js";
 
