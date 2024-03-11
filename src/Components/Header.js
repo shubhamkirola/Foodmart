@@ -4,18 +4,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import useOnline from '../Utils/useOnline';
 import { useSelector } from 'react-redux';
+import { IconContext } from "react-icons";
+import { FiShoppingCart } from "react-icons/fi";
+
 
 
 const Header = () => {
 
-  const [stylediv, setstylediv] = useState(true)
+  const [stylediv, setstylediv] = useState(false)
 
   const showSign = () => {
     setstylediv(!stylediv)
   }
 
   const handleClick = () => {
-    setstylediv(false)
+    setstylediv(true)
   }
 
   // const isOnline = useOnline();
@@ -24,37 +27,27 @@ const Header = () => {
 
     return (
       <>
-      <div className='signup' style={ stylediv ? 
-        {
-        height: "100vh",
-        width: "50vw",
-        backgroundColor : "black",
-        position: "fixed",
-        visibility: "hidden",
-        marginLeft: "200px"
-        } : {
-          height: "100vh",
-        width: "50vw",
-        backgroundColor : "black",
-        position: "fixed",
-        visibility: "visible",
-        marginLeft: "200px"
-        }}>
-          <button onClick={showSign}>close</button>
-        </div>
-        <div className='header flex items-center justify-between bg-[orange] h-[110px] w-screen p-[20px]'>
-          <div className='logo'>
-            <img src={logoimg} alt='img' className='h-[110px] w-auto'></img>
+        <div className='header flex items-center justify-between bg-[orange] h-[9rem] w-auto p-[20px]'>
+          <div className='logo h-[110px] w-auto'>
+            <img src={logoimg} alt='img' className='h-[110px] w-auto rounded-xl ml-2'></img>
           </div>
-          <div className='navItems flex items-center justify-center mr-[20px]'>
+          <div className='navItems flex items-center justify-center mr-[1rem]'>
             <ul className='list-none flex items-center justify-center'>
               {/* <li className='px-[10px] py-[0]'>Online : {isOnline === true ? "yup" : "Nope"}</li> */}
-              <li className='px-[10px] py-[0] font-bold'><Link to = "/">HOME</Link></li>
-              <li className='px-[10px] py-[0] font-bold'><Link to = "/about">ABOUT US</Link></li>
-              <li className='px-[10px] py-[0] font-bold'><Link to = "/contact">CONTACT US</Link></li>
-              <li className='px-[10px] py-[0] font-bold'><Link to = "/grocery">GROCERIES</Link></li>
-              <li className='px-[10px] py-[0] font-bold'><Link to = "/cart">CART - {cartItems.length}</Link></li>
-              <button onClick={handleClick} className='p-[10px] font-bold border-[1px] border-[solid] border-[black]'>SIGN UP</button>
+              <li className='px-[1rem] py-[0] font-bold'><Link to = "/">HOME</Link></li>
+              <li className='px-[1rem] py-[0] font-bold'><Link to = "/about">ABOUT US</Link></li>
+              <li className='px-[1rem] py-[0] font-bold'><Link to = "/contact">CONTACT US</Link></li>
+              <li className='px-[1rem] py-[0] font-bold'><Link to = "/grocery">GROCERIES</Link></li>
+              <li className='px-[1rem] py-[0] font-bold'><Link to = "/cart"><div className="flex">
+              <IconContext.Provider value={{ size: "1.5em" }}>
+                <div className="mr-2">
+                  <FiShoppingCart />
+                </div>
+              </IconContext.Provider>
+              <p data-testid="cart">Cart -{cartItems.length}</p>
+            </div>
+            </Link></li>
+              <button onClick={handleClick} className='p-[6px] font-bold border-[1px] border-[solid] border-[black] rounded'>SIGN UP</button>
             </ul>
           </div>
         </div>

@@ -4,6 +4,7 @@ import './App.css';
 import { Outlet } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import appStore from './Utils/appStore';
+import Footer from './Components/Footer';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
 
     <Header/>
     <Outlet/>
+    <Footer/>
 
     </div>
     </Provider>

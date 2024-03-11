@@ -15,7 +15,7 @@ const Body = () => {
 
     function filterTop () {
             const topRated = restaurantList.filter(
-                (rest) => { return rest.info.avgRating > 4 }
+                (rest) => { return rest.info.avgRating > 4.3 }
             );
             setfilteredRestaurant(topRated);
     }
@@ -40,9 +40,12 @@ const Body = () => {
       )
 
     return restaurantList.length === 0 ? ( <Shimmer/> ) : (
-    <div className='body mt-[10px] bg-[cadetblue] h-[100%] w-screen flex items-center flex-col'>
-      <div className='search-Bar'>
-        <input type='text' 
+      <>
+    <div className='body bg-[cadetblue] w-auto flex items-center justify-center flex-col'>
+      <div className='cards-container flex w-full justify-around px-[4rem] pt-6 flex-wrap'>
+        <div className='search-Bar w-1/3 flex flex-row justify-between mt-[0.5rem]'> 
+          <input type='text'
+            className='border-[1px] border-[solid] border-[black] rounded h-8 w-2/3' 
             placeholder='Type Restaurant Name..' 
             value={searchTxt} 
             onChange={(e) => {setsearchTxt(e.target.value);
@@ -52,19 +55,20 @@ const Body = () => {
                 setfilteredRestaurant(filterRestaurant)}}
             >
             </input>
-        <button onClick={filterTop}> TOP RATED </button>
-      </div>
-      <div className='cards-container h-screen w-9/12 p-[20px] flex flex-row flex-wrap'>
-        {filteredRestaurant.map((rest) => {
-          return (
-            <Link 
-            key={rest?.info?.id}
-            to = {"/restaurants/" + rest?.info?.id} ><RestaurantCard {...rest.info} ></RestaurantCard></Link>
-          )
-        })}
-        
+            <button onClick={filterTop} className='border-[1px] border-[solid] border-[black] ml-4 rounded p-[0.23rem] w-[9rem]'><p className='font-bold'>TOP RATED</p></button>
+        </div>
+        <div className='cards-container flex w-full justify-around px-[3rem] pt-6 flex-wrap'>
+          {filteredRestaurant.map((rest) => {
+            return (
+              <Link 
+              key={rest?.info?.id}
+              to = {"/restaurants/" + rest?.info?.id} ><RestaurantCard {...rest.info} ></RestaurantCard></Link>
+            )
+          })}
+        </div>
       </div>
     </div>
+  </>
     )
   };
 

@@ -1,25 +1,33 @@
 
 import ItemCards from "./ItemCards";
+import { BsCaretDown } from "react-icons/bs";
+import { IconContext } from "react-icons";
 
 
-const RestCategory = ({data, showItems, setshowIndex}) => {
-    console.log(data)
-    
-    function handleclick () {
-        setshowIndex();
-    }
+    const RestCategory = ({ data, showItems, setshowIndex }) => {
+        
+        function handleclick () {
+            setshowIndex();
+        }
+
 return(
     <>
-    <div className="w-6/12 mx-auto my-4 bg-gray-100 shadow-lg p-4">
-        <div className="flex justify-between">
-            <span className="font-bold text-lg">
-            {data.title} ({data.itemCards.length})
-            </span>
-            <span onClick={handleclick}>+</span>
-        </div>
-        <div className="flex p-4">
-           {showItems && <ItemCards items={data.itemCards}/>}
-        </div> 
+      <div className="border-b-2">
+          <div className="flex justify-between m-3">
+              <span className="font-bold text-lg">
+              {data.title} ({data.itemCards.length})
+              </span>
+              <button onClick={handleclick}>
+              <IconContext.Provider value={{ size: "1.5em" }}>
+                  <div className="mr-2">
+                    <BsCaretDown />
+                  </div>
+                </IconContext.Provider>
+                </button>
+          </div>
+          <div className="flex p-4">
+            {showItems && <ItemCards items={data.itemCards}/>}
+          </div> 
     </div>
     </>
 )
