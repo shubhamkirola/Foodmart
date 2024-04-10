@@ -36,7 +36,6 @@ const Header = () => {
               <p data-testid="cart">Cart -{cartItems.length}</p>
             </div>
             </Link></li>
-              <button className='p-[6px] font-bold border-[1px] border-[solid] border-[black] rounded'>SIGN UP</button>
             </ul>
           </div>
         </div>

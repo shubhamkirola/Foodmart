@@ -20,9 +20,9 @@ const RestaurantMenu = () => {
     const json = await data.json();
     console.log(json.data.cards)
 
-    setresinfo(json.data.cards[0].card.card.info);
+    setresinfo(json.data.cards[2].card.card.info);
 
-    const categories = json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards.filter((c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    const categories = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
 
     setcategories(categories);
 
