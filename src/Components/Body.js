@@ -36,7 +36,7 @@ const Body = () => {
     
     if(isOnline === false) 
     return (
-      <h1>sdjfalkjsflkajsdlkfjlsd</h1>
+      <h1>You're not Online</h1>
       )
 
     return restaurantList.length === 0 ? ( <Shimmer/> ) : (

@@ -1,5 +1,7 @@
 const Shimmer = () => {
   return (
+    <>
+    <div className="py-4  flex justify-center mt-4"> CORS EXTENSION IS REQUIRED TO RETRIEVE THE DATA FROM THE API, PLEASE ENABLE IT</div>
     <div data-testId="shimmer" className="mt-1 flex justify-center flex-wrap">
       {Array(10)
         .fill("")
@@ -10,6 +12,7 @@ const Shimmer = () => {
           ></div>
         ))}
     </div>
+    </>
   );
 };
 
